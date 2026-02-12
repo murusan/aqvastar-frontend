@@ -29,6 +29,7 @@ const calculateTempCoeff = (location, below10) => {
 
 export default function App() {
   const [formData, setFormData] = useState({
+    quote_reference: "",
     customer_name: "",
     project_location: "",
 
@@ -233,7 +234,7 @@ useEffect(() => {
     const dailyRunning = formData.running_hours; 
     setFormData(prev => ({ 
       ...prev, 
-      initial_running_time: initialRunningTime.toFixed(2), 
+      initial_running_time: initialRunningTime.toFixed(0), 
       daily_running_time: dailyRunning 
     })); }, 
     [ formData.total_water_capacity, 
@@ -269,6 +270,16 @@ useEffect(() => {
 
       <fieldset>
         <legend>Customer Details</legend>
+        <div className="row">
+          <label>Quote Reference Number:</label>
+          <input
+            type="text"
+            value={formData.quote_reference}
+            onChange={e =>
+              setFormData({ ...formData, quote_reference: e.target.value })
+            }
+          />
+          </div>
         <div className="row">
           <label>Customer Name</label>
           <input
