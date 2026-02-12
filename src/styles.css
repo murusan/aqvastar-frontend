@@ -1,0 +1,248 @@
+/* ============================= */
+/*         GLOBAL STYLES        */
+/* ============================= */
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+/* ============================= */
+/*         MAIN CONTAINER       */
+/* ============================= */
+
+.container {
+  width: 800px;
+  max-width: 95%;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================= */
+/*            HEADER             */
+/* ============================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.logo {
+  height: 200px;
+  object-fit: contain;
+}
+
+h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ============================= */
+/*         SECTION CARD         */
+/* ============================= */
+
+fieldset {
+  border: none;
+  background: #ffffff;
+  margin-bottom: 30px;
+  padding: 25px 25px 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+/* Modern SaaS section header */
+legend {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #2563eb;
+  padding: 0 6px;
+}
+
+/* ============================= */
+/*         FORM LAYOUT          */
+/* ============================= */
+
+.row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 14px;
+}
+
+/* ============================= */
+/*            LABELS             */
+/* ============================= */
+
+label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* ============================= */
+/*         INPUT FIELDS         */
+/* ============================= */
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #9ca3af;
+}
+
+/* Focus */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Readonly fields */
+input[readonly],
+textarea[readonly] {
+  background-color: #eef4ff;
+  border: 1.5px solid #3b82f6;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+/* ============================= */
+/*            BUTTONS           */
+/* ============================= */
+
+button {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+button:active {
+  transform: translateY(0px);
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ============================= */
+/*         RESULT CARD          */
+/* ============================= */
+
+.result-box {
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+/* ============================= */
+/*         RESPONSIVE           */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 25px;
+  }
+
+  .logo {
+     height: 200px;
+  object-fit: contain;
+  }
+}
+
+.pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 15px;
+}
+
+.pdf-logo {
+   height: 200px;
+  object-fit: contain;
+}
+
+.pdf-meta h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.pdf-meta p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 15px;
+}
+
+.pdf-logo {
+   height: 200px;
+  object-fit: contain;
+}
+
+.pdf-meta h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.pdf-meta p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #555;
+}
