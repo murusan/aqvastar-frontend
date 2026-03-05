@@ -19,6 +19,7 @@ export default function Temperature({ formData, setFormData }) {
           type="number"
           value={formData.temp_desired}
           onChange={e => setFormData({ ...formData, temp_desired: e.target.value })}
+        readOnly
         />
       </div>
 
