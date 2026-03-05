@@ -54,10 +54,11 @@ columnStyles: {
   head: [["Field", "Value"]],
   body: [
     ["Customer Name", formData.customer_name],
-    ["Pool Location", formData.pool_location],
-    ["Pool Type", formData.pool_type],
+    ["Pool Location", formData.pool_location + (formData.hill_area ? ", HILL AREA" : "") + (formData.below_10c ? ", BELOW 10\u00B0C" : "")],
+    ["Pool Type", `${formData.pool_type} ${formData.pool_cover ? 'WITH COVER' : 'WITHOUT COVER'}`],
     ["Pool Volume (m³)", formData.pool_volume],
-    ["Total Water Capacity (m³)", formData.total_water_capacity]
+    ["Total Water Capacity (m³)", formData.total_water_capacity],
+    ["Desired Temperature", formData.temp_desired+"\u00B0C"]
   ],
   headStyles: { fillColor: [0, 63, 136] },
   styles: { fontSize: 9 },
@@ -93,7 +94,7 @@ columnStyles: {
       ["Minimum Required Capacity of Heat Pump KW", formData.min_capacity_pump],
       ["Initial Running Time", formData.initial_running_time],
       ["Daily Running Time", formData.daily_running_time],
-      ["Electricity Rate (Rs/kWh))", formData.electricity_rate],
+      //["Electricity Rate (Rs/kWh))", formData.electricity_rate],
       ["Initial Running Cost (Rs)", formData.initial_running_cost],
       ["Daily Running Cost (Rs)", formData.daily_running_cost]
     ],

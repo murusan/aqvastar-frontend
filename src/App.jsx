@@ -51,7 +51,7 @@ export default function App() {
     pool_cover: false,
 
     temp_current: "",
-    temp_desired: "",
+    temp_desired: 28,
     temp_rise_required: "",
 
     running_hours: 12,
@@ -133,8 +133,8 @@ console.log("First row:", results.data[0]);
 
       setFormData(prev => ({
         ...prev,
-        pool_area: area.toFixed(2),
-        pool_volume: volume.toFixed(2)
+        pool_area: area.toFixed(0),
+        pool_volume: volume.toFixed(0)
       }));
     }
   }, [formData.pool_length, formData.pool_width, formData.pool_depth]);
@@ -149,8 +149,8 @@ console.log("First row:", results.data[0]);
     setFormData(prev => ({
       ...prev,
       balancing_tank_percent: percent,
-      balancing_tank_volume: balVolume.toFixed(2),
-      total_water_capacity: (volume + balVolume).toFixed(2)
+      balancing_tank_volume: balVolume.toFixed(0),
+      total_water_capacity: (volume + balVolume).toFixed(0)
     }));
   }, [formData.pool_volume, formData.pool_type]);
 
