@@ -204,7 +204,7 @@ columnStyles: {
   }
 
   doc.save(
-    `Proposal_${formData.customer_name}_${new Date()
+    `Proposal_${formData.customer_name}_${formData.quote_reference}_${new Date()
       .toISOString()
       .slice(0, 10)}.pdf`
   );
