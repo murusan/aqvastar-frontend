@@ -142,7 +142,7 @@ columnStyles: {
 },
     head: [["Description", "Amount"]],
     body: [
-      ["Model Code", modelData?.Model || "Contact Aqvastar"],
+      ["Model Code", (modelData?.Model || "Contact Aqvastar") +  (formData.inverter_model ? " (INVERTER MODEL)" : "")],
       ["Base Price Rs.", formattedMRP],
       [`GST 18%`, formattedGST],
       ["Total Price Rs", formattedTotal]

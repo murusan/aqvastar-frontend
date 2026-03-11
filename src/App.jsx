@@ -29,6 +29,7 @@ const calculateTempCoeff = (location, below10) => {
 
 export default function App() {
   const [formData, setFormData] = useState({
+    inverter_model: false,
     quote_reference: "",
     customer_name: "",
     project_location: "",
@@ -82,7 +83,12 @@ function ModelSelector({ requiredPower, setModelData }) {
 
   setLoading(true);
 
-  Papa.parse("/ActivePricelist.csv", {
+ const csvFile = formData.inverter_model 
+  ? "/ActiveInverterPricelist.csv"
+  : "/ActivePricelist.csv";
+
+  console.log("CSV FILE:", csvFile);
+Papa.parse(csvFile, {
     download: true,
     header: true,
     complete: function (results) {
@@ -162,14 +168,14 @@ console.log("First row:", results.data[0]);
       formData.below_10c
     );
 
-    const cop = formData.pool_location === "NORTH" ? 2.5 : 3.5;
-
+    let cop = formData.pool_location === "NORTH" ? 2.5 : 3.5;
+cop = formData.inverter_model ? 2 * cop : cop;
     setFormData(prev => ({
       ...prev,
       temp_current: temp,
       cop: cop
     }));
-  }, [formData.pool_location, formData.below_10c]);
+  }, [formData.pool_location, formData.below_10c, formData.inverter_model]);
 
   /* -------------------- TEMP RISE -------------------- */
 
@@ -269,7 +275,7 @@ useEffect(() => {
       </div>
 
       <fieldset>
-        <legend>Customer Details</legend>
+        <legend>Quote Details</legend>
         <div className="row">
           <label>Quote Reference Number:</label>
           <input
@@ -280,6 +286,7 @@ useEffect(() => {
             }
           />
           </div>
+             
         <div className="row">
           <label>Customer Name</label>
           <input
@@ -290,6 +297,16 @@ useEffect(() => {
             }
           />
         </div>
+         <div className="row">
+        <label>Is inverter Model</label>
+      <input
+          type="checkbox"
+          checked={formData.inverter_model}
+          onChange={(e) =>
+            setFormData({ ...formData, inverter_model: e.target.checked })
+          }
+        />
+      </div>
       </fieldset>
 
       <PoolConditions formData={formData} setFormData={setFormData} />
@@ -313,7 +330,11 @@ useEffect(() => {
               : "Please Contact Aqvastar Office"}
           </p>
 
-          <p><b>Input Power:</b> {modelData["Input Power"]}</p>
+          {parseFloat(modelData["Input Power"]) !== 100000 && (
+  <p>
+    <b>Input Power:</b> {modelData["Input Power"]}
+  </p>
+)}
           <p><b>MRP Rs.:</b> {modelData.MRP}</p>
           <p><b>GST %:</b> {18}%</p>
           <p>
