@@ -141,12 +141,12 @@ columnStyles: {
   1: { cellWidth: (pageWidth - 28) / 2 }
 },
     head: [["Description", "Amount"]],
-body: [
-  ["Model Code", (modelData?.Model || "Contact Aqvastar") + (formData.inverter_model ? " (INVERTER MODEL)" : "")],
-  ["Base Price", `\u20B9 ${formattedMRP}`],
-  ["GST 18%", `\u20B9 ${formattedGST}`],
-  ["Total Price", `\u20B9 ${formattedTotal}`]
-],
+    body: [
+      ["Model Code", (modelData?.Model || "Contact Aqvastar") +  (formData.inverter_model ? " (INVERTER MODEL)" : "")],
+      ["Base Price Rs.", formattedMRP],
+      [`GST 18% Rs.`, formattedGST],
+      ["Total Price Rs", formattedTotal]
+    ],
     headStyles: { fillColor: [0, 63, 136] },
     styles: { fontSize: 9 },
     didParseCell: function (data) {
